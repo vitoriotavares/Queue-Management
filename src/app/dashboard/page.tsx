@@ -5,12 +5,19 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import { ArrowUpIcon, ArrowDownIcon } from 'lucide-react';
 import MainLayout from '@/components/layout/MainLayout';
 
+interface StatItem {
+  value: number;
+  change: number;
+  trend: 'up' | 'down';
+  unit?: string;
+}
+
 const mockData = {
   stats: {
-    totalVisits: { value: 16, change: 3, trend: 'up' },
-    averageVisitTime: { value: 14, unit: 'min', change: 2, trend: 'down' },
-    averageUserAge: { value: 49, change: 4, trend: 'up' },
-    canceledVisits: { value: 4, change: 2, trend: 'down' },
+    totalVisits: { value: 16, change: 3, trend: 'up' } as StatItem,
+    averageVisitTime: { value: 14, unit: 'min', change: 2, trend: 'down' } as StatItem,
+    averageUserAge: { value: 49, change: 4, trend: 'up' } as StatItem,
+    canceledVisits: { value: 4, change: 2, trend: 'down' } as StatItem,
   },
   ageGender: [
     { age: '18-24', male: 3.3, female: 0 },
